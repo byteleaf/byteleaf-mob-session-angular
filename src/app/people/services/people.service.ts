@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {map, Observable} from 'rxjs';
 import People from '../models/people';
 
 @Injectable({
@@ -9,7 +9,13 @@ import People from '../models/people';
 export class PeopleService {
   constructor(private http: HttpClient) {}
 
-  getPeople(): Observable<People[]> {
-    return this.http.get<People[]>('https://swapi.dev/api/people');
+  async getPeople(): Promise<People[]> {
+    const people = await this.http.get<any>('https://swapi.dev/api/people').pipe(map((data) => data.results)).toPromise() as People[];
+
+    for(let person of people) {
+      person.homeworld = (await this.http.get<any>(person.homeworld).toPromise()).name;
+    }
+
+    return people;
   }
 }

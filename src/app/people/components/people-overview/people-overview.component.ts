@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PEOPLE_DATA } from './people-data';
 import People from '../../models/people';
 import { PeopleService } from '../../services/people.service';
 
@@ -15,11 +14,8 @@ export class PeopleOverviewComponent implements OnInit {
 
   constructor(private peopleService: PeopleService) {}
 
-  ngOnInit(): void {
-    this.peopleService.getPeople().subscribe((people) => {
-      this.dataSource = people.results;
-      console.log(people);
-    });
+  async ngOnInit(): Promise<void> {
+    this.dataSource = await this.peopleService.getPeople();
   }
 
   getFilteredData(): People[] {
