@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import People from '../../models/people';
 import { PeopleService } from '../../services/people.service';
 
@@ -12,7 +13,7 @@ export class PeopleOverviewComponent implements OnInit {
   displayedColumns: string[] = ['name', 'gender', 'birth_year', 'homeworld'];
   dataSource: People[] = [];
 
-  constructor(private peopleService: PeopleService) {}
+  constructor(private peopleService: PeopleService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
     this.dataSource = await this.peopleService.getPeople();
@@ -26,5 +27,9 @@ export class PeopleOverviewComponent implements OnInit {
             .includes(this.filterValue.toLowerCase());
         })
       : [];
+  }
+
+  goToDetails(index: number) {
+    this.router.navigate(['/details', { id: index }]);
   }
 }

@@ -6,9 +6,10 @@ import { PeopleOverviewComponent } from './components/people-overview/people-ove
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { PeopleDetailsComponent } from './components/people-detail/people-details.component';
 
 @NgModule({
-  declarations: [PeopleOverviewComponent],
+  declarations: [PeopleOverviewComponent, PeopleDetailsComponent],
   imports: [
     CommonModule,
     MatTableModule,
