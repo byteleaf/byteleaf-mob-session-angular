@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {PEOPLE_DATA} from "./people-data";
-
+import { PEOPLE_DATA } from './people-data';
 
 @Component({
   selector: 'app-people-overview',

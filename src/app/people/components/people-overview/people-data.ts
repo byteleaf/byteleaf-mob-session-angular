@@ -1,6 +1,5 @@
 ﻿import People from '../../models/people';
 
-
 export const PEOPLE_DATA: People[] = [
   {
     name: 'Luke Skywalker',
