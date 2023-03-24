@@ -1,4 +1,4 @@
-import Resource, { ResourceUrl } from './Base';
+import Resource from './base';
 
 export default interface Planet extends Resource {
   name: string;
@@ -10,6 +10,6 @@ export default interface Planet extends Resource {
   terrain: string;
   surface_water: string;
   population: string;
-  residents: ResourceUrl[];
-  films: ResourceUrl[];
+  residents: string[];
+  films: string[];
 }

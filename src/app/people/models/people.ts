@@ -1,9 +1,9 @@
-import Resource, { ResourceUrl } from './Base';
+import Resource from './base';
 
 export default interface People extends Resource {
   birth_year: string;
   eye_color: string;
-  films: ResourceUrl[];
+  films: string[];
   gender: string;
   hair_color: string;
   height: string;
@@ -11,7 +11,7 @@ export default interface People extends Resource {
   mass: string;
   name: string;
   skin_color: string;
-  species: ResourceUrl[];
-  starships: ResourceUrl[];
-  vehicles: ResourceUrl[];
+  species: string[];
+  starships: string[];
+  vehicles: string[];
 }
